@@ -1,0 +1,3 @@
+name, serve_time, order_minute, expectedResult
+Lunch, 13:30, 60, Success
+ ,12:20,60, Failure

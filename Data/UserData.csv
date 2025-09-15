@@ -1,0 +1,3 @@
+firstname, lastname, email, phonenumber, password, confirmpassword, expectedResult
+Sabina, Saru, sabina.saru@infinite.com, 9848071334, Sabina@123, Sabina@123, Success,
+Sabina, Saru, sabina.saru@infinite.com, 9848071334, Sabina@123, Sabina@123, validation_fail
