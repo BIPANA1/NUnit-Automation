@@ -38,7 +38,6 @@ namespace nUnitTestProject.Tests
                     case "validation_error":
                         messageLocator = FoodLocators.validation_error;
                         break;
-
                     case "already_exist":
                         messageLocator = FoodLocators.already_exist;
                         break;   

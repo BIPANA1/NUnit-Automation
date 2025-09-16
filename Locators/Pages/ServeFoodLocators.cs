@@ -4,6 +4,7 @@ namespace nUnitTestProject.Locators
 {
     public static class ServeFoodLocators
     {
+        
         public static By serving_menu => By.XPath("/html/body/div[1]/aside/div/nav/ul/li[7]/a");
         
         public static By serve_food_name => By.XPath("/html/body/div[1]/div[2]/div/div/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[5]/div/a[2]");
