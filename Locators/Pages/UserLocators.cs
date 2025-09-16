@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace nUnitTestProject.Locators
+namespace nUnitTestProject.Locators.Pages
 {
     public static class UserLocators
     {
@@ -13,12 +13,6 @@ namespace nUnitTestProject.Locators
         public static By password => By.Id("Password");
         public static By confirm_password => By.Id("ConfirmPassword");
         public static By submit_button => By.XPath("/html/body/div[1]/div[4]/div/div/div[2]/form/div[7]/button[1]");
-        public static By user_success => By.XPath("//*[contains(@class,'notyf__message')]");
-
-        // public static By user_success => By.XPath("//*[contains(@class,'notyf__message') and contains(text(),'Account for')]");
-        public static By user_failed => By.XPath("//*[contains(@class,'notyf__message') and text()='Invalid attempt.']");
-
-        public static By validation_failed => By.CssSelector(".text-danger field-validation-valid");
 
     }
 }

@@ -1,8 +1,10 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using nUnitTestProject.Pages;
 using nUnitTestProject.Utils;
-using nUnitTestProject.Locators;
+using nUnitTestProject.Locators.Pages;
+using nUnitTestProject.Locators.Shared;
 
 namespace nUnitTestProject.Tests
 {
@@ -20,24 +22,33 @@ namespace nUnitTestProject.Tests
                 var loginPage = new LoginPage(driver);
                 loginPage.Login(username, password);
 
-                string actualMessage;
+                By messageLocator;
 
-                if (expectedResult == "Success")
+            switch (expectedResult)
                 {
-                    actualMessage = driver.FindElement(LoginLocators.login_success).Text;
-                    Console.WriteLine( actualMessage, "Pass");
-                    // Assert.Equals("Logged in as infinite.admin@infinite.com.", actualMessage);
+                    case "Success":
+                        messageLocator = ValidationLocators.success("Logged in as infinite.admin@infinite.com.");
+                        break;
+                    case "Failure":
+                        messageLocator = ValidationLocators.failed("Invalid attempt.");
+                        break;
+                    case "validation_error":
+                        messageLocator = ValidationLocators.validation_error("Invalid login attempt.");
+                        break;
+                    case "already_exist":
+                        messageLocator = ValidationLocators.already_exist("Invalid attempt.");
+                        break;
+                    default:
+                        Assert.Fail("Invalid expectedResult value.");
+                        return;
                 }
-                else
-                {
-                    actualMessage = driver.FindElement(LoginLocators.login_failed).Text;
-                    Console.WriteLine( actualMessage, "Failure");
-                }
+
             }
             finally
             {
                 driver.Quit();
             }
         }
+
+        }
     }
-}

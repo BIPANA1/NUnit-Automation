@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 using System.Threading; // Required for Thread.Sleep
-using nUnitTestProject.Locators;
+using nUnitTestProject.Locators.Pages;
 
 namespace nUnitTestProject.Pages
 {

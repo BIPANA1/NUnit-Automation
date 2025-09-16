@@ -1,5 +1,5 @@
 using OpenQA.Selenium;
-using nUnitTestProject.Locators;
+using nUnitTestProject.Locators.Pages;
 using OpenQA.Selenium.Support.UI;
 
 namespace nUnitTestProject.Pages

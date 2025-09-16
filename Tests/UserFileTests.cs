@@ -4,7 +4,8 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using nUnitTestProject.Pages;
 using nUnitTestProject.Utils;
-using nUnitTestProject.Locators;
+using nUnitTestProject.Locators.Pages;
+using nUnitTestProject.Locators.Shared;
 
 namespace nUnitTestProject.Tests
 {

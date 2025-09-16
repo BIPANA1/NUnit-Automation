@@ -12,14 +12,12 @@ namespace nUnitTestProject.Utils
             for (int i = 1; i < lines.Length; i++) 
             {
                 var parts = lines[i].Split(',');
-                if (parts.Length < 3) continue;
+                if (parts.Length < 2) continue;
 
                 yield return new TestCaseData(
                     parts[0].Trim(),
-                    parts[1].Trim(),
-                    parts[2].Trim()
-
-                
+                    parts[1].Trim()
+                  
                 ).SetName($"RoleTest_{parts[0]}");
             }
         }

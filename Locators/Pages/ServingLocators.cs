@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace nUnitTestProject.Locators
+namespace nUnitTestProject.Locators.Pages
 {
     public static class ServingLocators
     {
@@ -11,7 +11,6 @@ namespace nUnitTestProject.Locators
     public static By serving_type =>By.XPath("/html/body/div[1]/div[4]/div/div/div[2]/form/div[1]/div/div[3]/div/div[1]/input");
     public static By serving_minute =>By.Id("PreOrderMinute");
     public static By serving_save => By.XPath("/html/body/div[1]/div[4]/div/div/div[2]/form/div[2]/button[1]");
-
 
     }
 }

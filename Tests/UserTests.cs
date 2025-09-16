@@ -3,7 +3,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using nUnitTestProject.Pages;
 using nUnitTestProject.Utils;
-using nUnitTestProject.Locators;
+using nUnitTestProject.Locators.Pages;
+using nUnitTestProject.Locators.Shared;
 using nUnitTestProject.FileReaders;
 
 namespace nUnitTestProject.Tests
@@ -28,23 +29,27 @@ namespace nUnitTestProject.Tests
 
                 By messageLocator;
 
-                switch (expectedResult)
+               switch (expectedResult)
                 {
                     case "Success":
-                        messageLocator = UserLocators.user_success;
+                        messageLocator = ValidationLocators.success("User added.");
                         break;
                     case "Failure":
-                        messageLocator = UserLocators.user_failed;
+                        messageLocator = ValidationLocators.failed("Invalid attempt.");
                         break;
-                    case "validation_fail":
-                        messageLocator = UserLocators.validation_failed;
+                    case "validation_error":
+                        messageLocator = ValidationLocators.validation_error("Name is required.");
+                        break;
+                    case "already_exist":
+                        messageLocator = ValidationLocators.already_exist("Invalid attempt.");
                         break;
                     default:
                         Assert.Fail("Invalid expectedResult value.");
                         return;
                 }
 
-                Console.WriteLine($"Locator selected for: {expectedResult}");
+                wait.Until(driver => driver.FindElement(messageLocator).Displayed);
+                Assert.That(driver.FindElement(messageLocator).Displayed, $"Expected message for '{expectedResult}' not displayed.");
             }
             finally
             {

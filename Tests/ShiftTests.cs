@@ -3,14 +3,15 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using nUnitTestProject.Pages;
 using nUnitTestProject.Utils;
-using nUnitTestProject.Locators;
+using nUnitTestProject.Locators.Pages;
+using nUnitTestProject.Locators.Shared;
 
 namespace nUnitTestProject.Tests
 {
     [TestFixture]
     public class Shift
     {
-         [Test, TestCaseSource(typeof(ShiftDataReader), nameof(ShiftDataReader.GetShiftData))]
+        [Test, TestCaseSource(typeof(ShiftDataReader), nameof(ShiftDataReader.GetShiftData))]
         public void Shifts(string name, string expectedResult)
         {
             IWebDriver driver = WebDriverFactory.CreateDriver();
@@ -30,30 +31,29 @@ namespace nUnitTestProject.Tests
                 switch (expectedResult)
                 {
                     case "Success":
-                        messageLocator = FoodLocators.food_success;
+                        messageLocator = ValidationLocators.success("Shift added.");
                         break;
                     case "Failure":
-                        messageLocator = FoodLocators.food_failed;
+                        messageLocator = ValidationLocators.failed("Invalid attempt.");
                         break;
                     case "validation_error":
-                        messageLocator = FoodLocators.validation_error;
+                        messageLocator = ValidationLocators.validation_error("Name is required.");
                         break;
                     case "already_exist":
-                        messageLocator = FoodLocators.already_exist;
-                        break;   
+                        messageLocator = ValidationLocators.already_exist("Invalid attempt.");
+                        break;
                     default:
                         Assert.Fail("Invalid expectedResult value.");
                         return;
                 }
 
-                Console.WriteLine($"Locator selected for: {expectedResult}");
+                wait.Until(driver => driver.FindElement(messageLocator).Displayed);
+                Assert.That(driver.FindElement(messageLocator).Displayed, $"Expected message for '{expectedResult}' not displayed.");
             }
             finally
             {
                 driver.Quit();
             }
         }
-
     }
-
 }

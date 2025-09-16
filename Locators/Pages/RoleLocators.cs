@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace nUnitTestProject.Locators
+namespace nUnitTestProject.Locators.Pages
 {
     public static class RoleLocators
     {
