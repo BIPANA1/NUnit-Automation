@@ -19,7 +19,7 @@ namespace nUnitTestProject.Utils
                     parts[1].Trim(),
                     parts[2].Trim()
 
-                ).SetName($"RoleTest_{parts[0]}");
+                ).SetName($"ServeFoodTest_{parts[0]}");
             }
         }
     }

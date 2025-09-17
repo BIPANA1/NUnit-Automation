@@ -9,10 +9,10 @@ using nUnitTestProject.Locators.Shared;
 namespace nUnitTestProject.Tests
 {
     [TestFixture]
-    public class ServeFood
+    public class Vehicle
     {
-         [Test, TestCaseSource(typeof(ServeFoodReader), nameof(ServeFoodReader.GetServeFoodData))]
-        public void ServeFoods(string servingdate, string enddate, string expectedResult)
+        [Test, TestCaseSource(typeof(VehicleDataReader), nameof(VehicleDataReader.GetVehicleData))]
+        public void Vehicles(string name,string description, string make, string model, string color, string license, string mobile,string imei, string expectedResult)
         {
             IWebDriver driver = WebDriverFactory.CreateDriver();
             driver.Navigate().GoToUrl("https://nepalshuttle.infinite.com/");
@@ -23,24 +23,21 @@ namespace nUnitTestProject.Tests
 
             try
             {
-                var serveFood = new ServeFoodPages(driver);
-                serveFood.ServeFood(servingdate, enddate);
+                var vehiclepage = new VehiclePages(driver);
+                vehiclepage.Vehicle(name,description,make,model,color,imei);
 
                 By messageLocator;
 
                 switch (expectedResult)
                 {
                     case "Success":
-                        messageLocator = ValidationLocators.success("Serving food item created for the date range");
+                        messageLocator = ValidationLocators.success("Vehicle Created.");
                         break;
                     case "Failure":
-                        messageLocator = ValidationLocators.failed("Invalid attempt");
-                        break;
-                    case "validation_error":
-                        messageLocator = ValidationLocators.validation_error("Name is required");
+                        messageLocator = ValidationLocators.failed("Invalid attempt.");
                         break;
                     case "already_exist":
-                        messageLocator = ValidationLocators.already_exist("Serving food item already exists for");
+                        messageLocator = ValidationLocators.already_exist("Invalid attempt.");
                         break;
                     default:
                         Assert.Fail("Invalid expectedResult value.");
@@ -55,7 +52,5 @@ namespace nUnitTestProject.Tests
                 driver.Quit();
             }
         }
-
     }
-
 }

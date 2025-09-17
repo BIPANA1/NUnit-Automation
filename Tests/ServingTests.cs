@@ -31,7 +31,7 @@ namespace nUnitTestProject.Tests
                 switch (expectedResult)
                 {
                     case "Success":
-                        messageLocator = ValidationLocators.success("Shift added.");
+                        messageLocator = ValidationLocators.success("Serving created.");
                         break;
                     case "Failure":
                         messageLocator = ValidationLocators.failed("Invalid attempt.");
@@ -40,7 +40,7 @@ namespace nUnitTestProject.Tests
                         messageLocator = ValidationLocators.validation_error("Name is required.");
                         break;
                     case "already_exist":
-                        messageLocator = ValidationLocators.already_exist("Invalid attempt.");
+                        messageLocator = ValidationLocators.already_exist("Serving already exist");
                         break;
                     default:
                         Assert.Fail("Invalid expectedResult value.");

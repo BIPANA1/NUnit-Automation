@@ -30,7 +30,7 @@ namespace nUnitTestProject.Tests
            switch (expectedResult)
                 {
                     case "Success":
-                        messageLocator = ValidationLocators.success("Role added.");
+                        messageLocator = ValidationLocators.success("Role Created");
                         break;
                     case "Failure":
                         messageLocator = ValidationLocators.failed("Invalid attempt.");

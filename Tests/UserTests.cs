@@ -32,7 +32,7 @@ namespace nUnitTestProject.Tests
                switch (expectedResult)
                 {
                     case "Success":
-                        messageLocator = ValidationLocators.success("User added.");
+                        messageLocator = ValidationLocators.success("Account for");
                         break;
                     case "Failure":
                         messageLocator = ValidationLocators.failed("Invalid attempt.");

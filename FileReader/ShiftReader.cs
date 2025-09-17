@@ -18,7 +18,7 @@ namespace nUnitTestProject.Utils
                     parts[0].Trim(),
                     parts[1].Trim()
                   
-                ).SetName($"RoleTest_{parts[0]}");
+                ).SetName($"ShiftTest_{parts[0]}");
             }
         }
     }

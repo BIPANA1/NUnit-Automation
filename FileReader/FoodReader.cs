@@ -7,6 +7,7 @@ namespace nUnitTestProject.Utils
          public static IEnumerable<TestCaseData> GetFoodData()
         {
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Data\FoodData.csv");
+            
             var lines = File.ReadAllLines(filePath);
 
             for (int i = 1; i < lines.Length; i++) 
@@ -20,7 +21,7 @@ namespace nUnitTestProject.Utils
                     parts[2].Trim(),
                     parts[3].Trim()
 
-                ).SetName($"RoleTest_{parts[0]}");
+                ).SetName($"FoodTest_{parts[0]}");
             }
         }
     }

@@ -11,7 +11,8 @@ namespace nUnitTestProject.Locators.Pages
         public static By food_price => By.Id("Price");
         public static By food_submit => By.XPath("//form//button[contains(text(),'Submit')]");
 
-     
+        public static By name_validation => By.Id("name-validation");
+
 }
 
 }

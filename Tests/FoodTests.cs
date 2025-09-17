@@ -24,22 +24,22 @@ namespace nUnitTestProject.Tests
 
             try
             {
-                var userPage = new FoodPages(driver);
-                userPage.Food(name, description, price);
+                var foodPage = new FoodPages(driver);
+                foodPage.Food(name, description, price);
 
                 By messageLocator;
 
                 switch (expectedResult)
                 {
                     case "Success":
-                        messageLocator = ValidationLocators.success("Shift added.");
+                        messageLocator = ValidationLocators.success("Food item created.");
                         break;
                     case "Failure":
                         messageLocator = ValidationLocators.failed("Invalid attempt.");
                         break;
                     case "validation_error":
                         messageLocator = ValidationLocators.validation_error("Name is required.");
-                        break;
+                        break; 
                     case "already_exist":
                         messageLocator = ValidationLocators.already_exist("Invalid attempt.");
                         break;

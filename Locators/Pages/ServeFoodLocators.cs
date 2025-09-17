@@ -13,6 +13,7 @@ namespace nUnitTestProject.Locators.Pages
 
         public static By foodDropdownButton =>
         By.XPath("//button[@data-id='FoodItemId' and @title='Select Food']");
+        
         public static By FoodOption(string foodName) =>
         By.XPath($"//ul[contains(@class,'dropdown-menu')]//span[normalize-space(text())='{foodName}']");
 
