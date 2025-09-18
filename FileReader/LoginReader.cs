@@ -16,9 +16,9 @@ namespace nUnitTestProject.Utils
                 if (parts.Length < 3) continue;
 
                 yield return new TestCaseData(
-                    parts[0].Trim(), // username
-                    parts[1].Trim(), // password
-                    parts[2].Trim()  // expectedResult
+                    parts[0].Trim(), 
+                    parts[1].Trim(), 
+                    parts[2].Trim()  
                 ).SetName($"LoginTest_{parts[0]}");
             }
         }

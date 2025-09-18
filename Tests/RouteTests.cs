@@ -6,16 +6,16 @@ using nUnitTestProject.Utils;
 using nUnitTestProject.Locators.Pages;
 using nUnitTestProject.Locators.Shared;
 
+
 namespace nUnitTestProject.Tests
 {
     [TestFixture]
-    public class ServiceTests
+    public class RouteTests
     {
-         [Test, TestCaseSource(typeof(ServingDataReader), nameof(ServingDataReader.GetServingData))]
-        public void ServiceTest(string name, string serve_time, string order_minute, string expectedResult)
+        [Test, TestCaseSource(typeof(RouteDataReader), nameof(RouteDataReader.GetRouteData))]
+        public void RouteTest(string name, string description, string expectedResult)
         {
             IWebDriver driver = WebDriverFactory.CreateDriver();
-            // driver.Navigate().GoToUrl("https://nepalshuttle.infinite.com/");
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
 
             var loginPage = new LoginPage(driver);
@@ -23,24 +23,24 @@ namespace nUnitTestProject.Tests
 
             try
             {
-                var userPage = new ServingPage(driver);
-                userPage.Serve(name, serve_time, order_minute);
+                var routePage = new RoutePage(driver);
+                routePage.Route(name, description);
 
                 By messageLocator;
 
                 switch (expectedResult)
                 {
                     case "Success":
-                        messageLocator = ValidationLocators.success("Serving created.");
+                        messageLocator = ValidationLocators.success("Route Created.");
                         break;
                     case "Failure":
                         messageLocator = ValidationLocators.failed("Invalid attempt.");
                         break;
                     case "validation_error":
                         messageLocator = ValidationLocators.validation_error("Name is required.");
-                        break;
+                        break; 
                     case "already_exist":
-                        messageLocator = ValidationLocators.already_exist("Serving already exist");
+                        messageLocator = ValidationLocators.already_exist("Invalid attempt.");
                         break;
                     default:
                         Assert.Fail("Invalid expectedResult value.");
