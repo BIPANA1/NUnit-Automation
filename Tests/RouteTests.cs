@@ -3,7 +3,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using nUnitTestProject.Pages;
 using nUnitTestProject.Utils;
-using nUnitTestProject.Locators.Pages;
 using nUnitTestProject.Locators.Shared;
 
 

@@ -3,7 +3,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using nUnitTestProject.Pages;
 using nUnitTestProject.Utils;
-using nUnitTestProject.Locators.Pages;
 using nUnitTestProject.Locators.Shared;
 using nUnitTestProject.FileReaders;
 
@@ -16,7 +15,6 @@ namespace nUnitTestProject.Tests
         public void UserTest(string firstname, string lastname, string email, string phonenumber, string password, string confirmpassword, string expectedResult)
         {
             IWebDriver driver = WebDriverFactory.CreateDriver();
-            // driver.Navigate().GoToUrl("https://nepalshuttle.infinite.com/");
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
 
             var loginPage = new LoginPage(driver);

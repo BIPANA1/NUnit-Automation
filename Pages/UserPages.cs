@@ -2,6 +2,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
 using nUnitTestProject.Locators.Pages;
+using nUnitTestProject.Locators.Shared;
 
 namespace nUnitTestProject.Pages
 {
@@ -21,8 +22,7 @@ namespace nUnitTestProject.Pages
         public void User(string firstname, string lastname, string email, string phonenumber, string password, string confirmpassword)
         {
             wait.Until(d => d.FindElement(UserLocators.user_menu)).Click();
-            wait.Until(d => d.FindElement(UserLocators.user_create)).Click();
-
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(CommonLocators.CreateButton("user"))).Click();
             wait.Until(d => d.FindElement(UserLocators.first_name)).SendKeys(firstname);
             _driver.FindElement(UserLocators.last_name).SendKeys(lastname);
             _driver.FindElement(UserLocators.email).SendKeys(email);

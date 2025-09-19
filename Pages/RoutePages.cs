@@ -19,20 +19,15 @@ namespace nUnitTestProject.Pages
 
         public void Route(string name, string description)
         {
-            // Navigate to Shuttle menu
             _wait.Until(ExpectedConditions.ElementToBeClickable(CommonLocators.navMenu("Shuttle"))).Click();
 
-            // Click on Routes navigation link
             _wait.Until(ExpectedConditions.ElementToBeClickable(RouteLocators.NavigationLink)).Click();
 
-            // Click on Create button
             _wait.Until(ExpectedConditions.ElementToBeClickable(CommonLocators.CreateButton("route"))).Click();
 
-            // Fill in form fields
             _wait.Until(ExpectedConditions.ElementIsVisible(CommonLocators.name)).SendKeys(name);
             _wait.Until(ExpectedConditions.ElementIsVisible(CommonLocators.description)).SendKeys(description);
 
-            // Submit the form
             _wait.Until(ExpectedConditions.ElementToBeClickable(CommonLocators.Submit("Save"))).Click();
         }
     }

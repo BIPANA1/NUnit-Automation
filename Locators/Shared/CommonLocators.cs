@@ -17,7 +17,5 @@ namespace nUnitTestProject.Locators.Shared
         public static By name => By.Id("Name");
         public static By description => By.Id("Description");
 
-
-
     }
 }

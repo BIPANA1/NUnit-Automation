@@ -15,8 +15,6 @@ namespace nUnitTestProject.Tests
         public void LoginTest(string username, string password, string expectedResult)
         {
             IWebDriver driver = WebDriverFactory.CreateDriver();
-            // driver.Navigate().GoToUrl("https://nepalshuttle.infinite.com/");
-
             try
             {
                 var loginPage = new LoginPage(driver);

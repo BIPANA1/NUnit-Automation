@@ -2,6 +2,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
 using nUnitTestProject.Locators.Pages;
+using nUnitTestProject.Locators.Shared;
 
 namespace nUnitTestProject.Pages
 {
@@ -20,8 +21,7 @@ namespace nUnitTestProject.Pages
         {
             wait.Until(d => d.FindElement(ShiftLocators.MenuItem("Office"))).Click();
             wait.Until(d => d.FindElement(ShiftLocators.MenuItem("Shift"))).Click();
-            wait.Until(d =>d.FindElement(ShiftLocators.create_shift)).Click();
-
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(CommonLocators.CreateButton("shift"))).Click();
             wait.Until(d => d.FindElement(ShiftLocators.name)).SendKeys(name);
             wait.Until(d => d.FindElement(ShiftLocators.SubmitButton("Save"))).Click();
 

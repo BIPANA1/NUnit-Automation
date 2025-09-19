@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
 using nUnitTestProject.Locators.Pages;
 using OpenQA.Selenium.Support.UI;
+using nUnitTestProject.Locators.Shared;
 
 namespace nUnitTestProject.Pages
 {
@@ -20,8 +21,7 @@ namespace nUnitTestProject.Pages
         public void Role(string name)
         {
             wait.Until(d => d.FindElement(RoleLocators.role_menu)).Click();
-            wait.Until(d => d.FindElement(RoleLocators.create_role)).Click();
-
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(CommonLocators.CreateButton("role"))).Click();
             wait.Until(d => d.FindElement(RoleLocators.name)).SendKeys(name);
             wait.Until(d => d.FindElement(RoleLocators.submit_role)).Click();
          

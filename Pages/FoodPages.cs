@@ -21,7 +21,6 @@ namespace nUnitTestProject.Pages
         public void Food(string name, string description, string price)
         {
             wait.Until(d => d.FindElement(CommonLocators.navMenu("Food Item"))).Click();
-            // wait.Until(d => d.FindElement(CommonLocators.CreateButton("fooditem"))).Click();
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(CommonLocators.CreateButton("fooditem"))).Click();
 
             wait.Until(d => d.FindElement(FoodLocators.food_name)).SendKeys(name);

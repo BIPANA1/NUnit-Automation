@@ -2,6 +2,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using nUnitTestProject.Locators.Pages;
+using nUnitTestProject.Locators.Shared;
 
 namespace nUnitTestProject.Pages
 {
@@ -18,28 +19,21 @@ namespace nUnitTestProject.Pages
 
         public void ServeFood(string servingdate, string enddate)
         {
-            // Navigate to food creation
             wait.Until(d => d.FindElement(ServeFoodLocators.serving_menu)).Click();
             wait.Until(d => d.FindElement(ServeFoodLocators.serve_food_name)).Click();
-            wait.Until(d => d.FindElement(ServeFoodLocators.create_food)).Click();
-
-            // Select food item from dropdown
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(CommonLocators.CreateButton("servingfooditem"))).Click();
             wait.Until(d => d.FindElement(ServeFoodLocators.foodDropdownButton)).Click();
-            wait.Until(d => d.FindElement(ServeFoodLocators.FoodOption("Momo"))).Click();
+            wait.Until(d => d.FindElement(ServeFoodLocators.FoodOption("Veg Roll"))).Click();
             Thread.Sleep(5000);
-            // Set Serving Date
             var servingDateInput = wait.Until(d => d.FindElement(ServeFoodLocators.ServingDate));
             SetDate(servingDateInput, servingdate);
             Thread.Sleep(5000);
 
-            // Click checkbox safely
             ClickElementSafely(By.Id("addMultipleServings"));
             Thread.Sleep(5000);
-            // Set End Date
             var endDateInput = wait.Until(d => d.FindElement(ServeFoodLocators.EndDate));
             SetDate(endDateInput, enddate);
             Thread.Sleep(5000);
-            // Submit form
             wait.Until(d => d.FindElement(ServeFoodLocators.submit)).Click();
             Thread.Sleep(5000);
 

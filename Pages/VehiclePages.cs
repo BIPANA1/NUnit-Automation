@@ -30,8 +30,6 @@ namespace nUnitTestProject.Pages
             wait.Until(d => d.FindElement(VehicleLocators.make)).SendKeys(make);
             wait.Until(d => d.FindElement(VehicleLocators.model)).SendKeys(model);
             wait.Until(d => d.FindElement(VehicleLocators.color)).SendKeys(color);
-            // wait.Until(d => d.FindElement(VehicleLocators.licensePlate)).SendKeys(licensePlate);
-            // wait.Until(d => d.FindElement(VehicleLocators.mobileNumber)).SendKeys(mobileNumber);
             wait.Until(d => d.FindElement(VehicleLocators.imei)).SendKeys(imei);
 
             wait.Until(d => d.FindElement(ShiftLocators.SubmitButton("Save"))).Click();

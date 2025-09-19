@@ -15,7 +15,6 @@ namespace nUnitTestProject.Tests
         public void Vehicles(string name,string description, string make, string model, string color, string license, string mobile,string imei, string expectedResult)
         {
             IWebDriver driver = WebDriverFactory.CreateDriver();
-            // driver.Navigate().GoToUrl("https://nepalshuttle.infinite.com/");
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
 
             var loginPage = new LoginPage(driver);

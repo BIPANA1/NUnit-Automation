@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
 using nUnitTestProject.Locators.Pages;
 using OpenQA.Selenium.Support.UI;
+using nUnitTestProject.Locators.Shared;
 
 namespace nUnitTestProject.Pages
 {
@@ -18,7 +19,7 @@ namespace nUnitTestProject.Pages
         public void Serve(string name,string serve_time, string order_minute)
         {
             wait.Until(d => d.FindElement(ServingLocators.serving_menu)).Click();
-            wait.Until(d => d.FindElement(ServingLocators.add_serving)).Click();
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(CommonLocators.CreateButton("serving"))).Click();
             wait.Until(d => d.FindElement(ServingLocators.serving_name)).SendKeys(name);
             wait.Until(d => d.FindElement(ServingLocators.serving_time)).SendKeys(serve_time);
             wait.Until(d => d.FindElement(ServingLocators.serving_type)).Click();

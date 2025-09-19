@@ -15,7 +15,6 @@ namespace nUnitTestProject.Tests
         public void Shifts(string name, string expectedResult)
         {
             IWebDriver driver = WebDriverFactory.CreateDriver();
-            // driver.Navigate().GoToUrl("https://nepalshuttle.infinite.com/");
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
 
             var loginPage = new LoginPage(driver);

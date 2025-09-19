@@ -10,7 +10,7 @@ namespace nUnitTestProject.Utils
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Data\LoginData.csv");
             var lines = File.ReadAllLines(filePath);
 
-            for (int i = 1; i < lines.Length; i++) // Skip header
+            for (int i = 1; i < lines.Length; i++)
             {
                 var parts = lines[i].Split(',');
                 if (parts.Length < 3) continue;
